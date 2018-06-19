@@ -59,7 +59,8 @@
 // }
 
 package main
-import "fmt"
+import ("fmt"
+  "sort")//добавляется пакет
 
 func main(){
   x := []int{
@@ -68,11 +69,12 @@ func main(){
     37,34,83,27,
     19,97,9,17,
    }
-  min := x[0]
-  for i, _ := range x {
-    if min>x[i] {
-      min = x[i]
-    }
-  }
-  fmt.Println(min)
+  // min := x[0]
+  // for i := 0; i < len(x); i++ {
+  //   if min > x[i] {
+  //     min = x[i]
+  //   }
+  // }
+  sort.Ints(x)
+  fmt.Println(/*min*/ x[0])
 }
