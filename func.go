@@ -121,17 +121,59 @@
 //   return x * factorial(x-1)
 // }
 
+// package main
+//
+// import "fmt"
+//
+// func first() {
+// 	fmt.Println("1st")
+// }
+// func second() {
+// 	fmt.Println("2st")
+// }
+// func main() {
+// 	defer second() //это ключевое слово  типо "потом"
+// 	first()
+// }
+
+// package main
+//
+// import "fmt"
+//
+// func main() {
+// 	defer func() {
+// 		str := recover()
+// 		fmt.Println(str)
+// 	}()
+// 	panic("PANIC")
+// }
 package main
 
 import "fmt"
 
-func first() {
-	fmt.Println("1st")
-}
-func second() {
-	fmt.Println("2st")
-}
 func main() {
-	defer second() //это ключевое слово  типо "потом"
-	first()
+	x := []int{
+		48, 96, 86, 68,
+		57, 82, 63, 70,
+		37, 34, 83, 27,
+		19, 97, 9, 17,
+	}
+	min := x[0]
+	for _, value := range x {
+		if value < min {
+			min = value
+		}
+	}
+	fmt.Println(min)
 }
+
+// func main(){
+//   x := []float64{2, 3, 4, 5, 66, 77}
+//   max := 99
+//   for _, i := range x[]{
+//     if max < x[i] {
+//       max = x[i]
+//     }
+//     fmt.Println(max)
+//   }
+// }
