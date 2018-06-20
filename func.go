@@ -1,5 +1,9 @@
 // package main
 //
+// import "fmt"
+
+// package main
+//
 // func average(xs []float64) float64 {
 // 	total := 0.0
 // 	for _, v := range xs {
@@ -67,16 +71,67 @@
 // 	fmt.Println(add(1, 1))
 // }
 
+// package main
+//
+// import "fmt"
+
+// func main() {
+// 	x := 0
+// 	increment := func() int {
+// 		x++
+// 		return x
+// 	}
+// 	fmt.Println(increment())
+// 	fmt.Println(increment())
+// }
+
+// package main
+//
+// import "fmt"
+//
+// func main() {
+// 	for i := 0; i < 10; i++ {
+// 		fmt.Println(i)
+// 	}
+// }
+
+// func makeEvenGenerator() func() uint { //замыкания
+// 	i := uint(0)
+// 	return func() (ret uint) {
+// 		ret = i
+// 		i += 2
+// 		return
+// 	}
+// }
+// func main() {
+// 	nextEven := makeEvenGenerator()
+// 	fmt.Println(nextEven()) //0
+// 	fmt.Println(nextEven()) //2
+// 	fmt.Println(nextEven()) //4
+// }
+
+//Рекурсия
+// package main
+// import "fmt"
+//
+// func factorial(x uint) uint{
+//   if x == 0 {
+//     return 1
+//   }
+//   return x * factorial(x-1)
+// }
+
 package main
 
 import "fmt"
 
+func first() {
+	fmt.Println("1st")
+}
+func second() {
+	fmt.Println("2st")
+}
 func main() {
-	x := 0
-	increment := func() int {
-		x++
-		return x
-	}
-	fmt.Println(increment())
-	fmt.Println(increment())
+	defer second() //это ключевое слово  типо "потом"
+	first()
 }
