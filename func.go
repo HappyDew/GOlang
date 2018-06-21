@@ -178,31 +178,39 @@
 //   }
 // }
 
-package main
-
-import "fmt"
-
-func makeOddGenerator() func() uint { //замыкания
-	i := uint(1)
-	return func() (ret uint) {
-		ret = i
-		i += 2
-		return
-	}
-}
-func main() {
-	nextEven := makeOddGenerator()
-	fmt.Println(nextEven()) //0
-	fmt.Println(nextEven()) //2
-	fmt.Println(nextEven())
-	fmt.Println(nextEven())
-	fmt.Println(nextEven())
-	fmt.Println(nextEven())
-	fmt.Println(nextEven()) //4
-}
-
 // package main
 //
-// func half(i, int) (int, bool) {
-// 	return i / 2, i%2 == 0
+// import "fmt"
+//
+// func makeOddGenerator() func() uint { //замыкания
+// 	i := uint(1)
+// 	return func() (ret uint) {
+// 		ret = i
+// 		i += 2
+// 		return
+// 	}
 // }
+// func main() {
+// 	nextEven := makeOddGenerator()
+// 	fmt.Println(nextEven()) //0
+// 	fmt.Println(nextEven()) //2
+// 	fmt.Println(nextEven())
+// 	fmt.Println(nextEven())
+// 	fmt.Println(nextEven())
+// 	fmt.Println(nextEven())
+// 	fmt.Println(nextEven()) //4
+// }
+
+package main
+
+import (
+	"fmt"
+)
+
+func half(i int) (int, bool) {
+	return i / 2, i%2 == 0
+}
+func main() {
+	fmt.Println(half(43))
+	fmt.Println(half(5))
+}
