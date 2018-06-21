@@ -147,25 +147,25 @@
 // 	}()
 // 	panic("PANIC")
 // }
-package main
-
-import "fmt"
-
-func main() {
-	x := []int{
-		48, 96, 86, 68,
-		57, 82, 6333, 70,
-		37, 34, 83, 27,
-		19, 97, 9, 17,
-	}
-	max := x[0]
-	for _, value := range x {
-		if value > max {
-			max = value
-		}
-	}
-	fmt.Println(max)
-}
+// package main
+//
+// import "fmt"
+//
+// func main() {
+// 	x := []int{
+// 		48, 96, 86, 68,
+// 		57, 82, 6333, 70,
+// 		37, 34, 83, 27,
+// 		19, 97, 9, 17,
+// 	}
+// 	max := x[0]
+// 	for _, value := range x {
+// 		if value > max {
+// 			max = value
+// 		}
+// 	}
+// 	fmt.Println(max)
+// }
 
 // func main(){
 //   x := []float64{2, 3, 4, 5, 66, 77}
@@ -176,4 +176,33 @@ func main() {
 //     }
 //     fmt.Println(max)
 //   }
+// }
+
+package main
+
+import "fmt"
+
+func makeOddGenerator() func() uint { //замыкания
+	i := uint(1)
+	return func() (ret uint) {
+		ret = i
+		i += 2
+		return
+	}
+}
+func main() {
+	nextEven := makeOddGenerator()
+	fmt.Println(nextEven()) //0
+	fmt.Println(nextEven()) //2
+	fmt.Println(nextEven())
+	fmt.Println(nextEven())
+	fmt.Println(nextEven())
+	fmt.Println(nextEven())
+	fmt.Println(nextEven()) //4
+}
+
+// package main
+//
+// func half(i, int) (int, bool) {
+// 	return i / 2, i%2 == 0
 // }
